@@ -1,0 +1,1 @@
+Recording of program only contains main window due to software either recording entire screen or just program. Because of this the text boxes that pop up are not shown in the recording. these would include the starting array, its sorted state, the results of a search and error messages.
