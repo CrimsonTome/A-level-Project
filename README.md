@@ -1,5 +1,5 @@
 # A-level-Project 2020/21
-## This is my A-level Computer Science project. It is a sorting/searching algorithm visualiser
+## This is my A-level Computer Science project. It is a sorting/searching algorithm visualiser written in C# as a Windows Forms Application
 Sorts included are Bubble sort, Insertion sort, Merge sort and Quick sort.  
 Searches included are Linear search and Binary search.
 
