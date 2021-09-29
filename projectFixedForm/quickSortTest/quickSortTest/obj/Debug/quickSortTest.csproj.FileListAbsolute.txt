@@ -1,7 +1,0 @@
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\bin\Debug\quickSortTest.exe.config
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\bin\Debug\quickSortTest.exe
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\bin\Debug\quickSortTest.pdb
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\obj\Debug\quickSortTest.csprojAssemblyReference.cache
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\obj\Debug\quickSortTest.csproj.CoreCompileInputs.cache
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\obj\Debug\quickSortTest.exe
-C:\Users\4matt\OneDrive - York College\CS\project\quickSortTest\quickSortTest\obj\Debug\quickSortTest.pdb
