@@ -6,3 +6,6 @@ Searches included are Linear search and Binary search.
 Due to this being written a long time ago, it is rather inefficient and likes to crash. In fact it used to only work on a college computer back when i worked on it. So run it at your own risk I guess.  
 
 You can read the full documentation [here](https://docs.google.com/document/d/1jUQKdZraZ3keLnGgQVcz6_ozyXOGCavXUVbXI8alzdg/edit?usp=sharing)
+
+path to correct files
+A-level-Project/projectFixedForm/A2Cw_Clark0/A2Cw_Clark0/
