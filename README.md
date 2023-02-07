@@ -7,5 +7,5 @@ Due to this being written a long time ago, it is rather inefficient and likes to
 
 You can read the full documentation [here](https://docs.google.com/document/d/1jUQKdZraZ3keLnGgQVcz6_ozyXOGCavXUVbXI8alzdg/edit?usp=sharing)
 
-path to code: `A-level-Project/projectFixedForm/A2Cw_Clark0/A2Cw_Clark0/sortsAndSearches.cs`
-path to exe: `A-level-Project/projectFixedForm/A2Cw_Clark0/A2Cw_Clark0/bin/Debug/A2Cw_Clark0.exe `
+path to code: `A-level-Project/A2Cw_Clark0/sortsAndSearches.cs`
+path to exe: `A-level-Project/A2Cw_Clark0/A2Cw_Clark0/bin/Debug/A2Cw_Clark0.exe `
