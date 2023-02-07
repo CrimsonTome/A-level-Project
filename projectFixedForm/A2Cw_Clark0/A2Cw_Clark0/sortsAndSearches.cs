@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -70,16 +70,6 @@ namespace A2Cw_Clark0
             Application.Exit();     //closes the program
         }
 
-
-        //not currently used. will return to when done with random array side
-        //abandoned
-        private int[] createArray()     //function is called when the user clicks the create array button
-        {
-            int arraySize = int.Parse(txtArraySize.Text);   //takes the input from the array size text box and converts it to an integer
-            int[] arrayData = new int[arraySize];   //sets the array to have the size of what the user specified
-            return (arrayData);     //returns the array - will be all 0 when created
-        }
-
         //only array creating function working (18.11.20) - updated 03.01.21 for larger array size and values
         private int[] createRandomArray()   //function for creating a random array
         {
@@ -103,95 +93,6 @@ namespace A2Cw_Clark0
             //validates input
             validateInput(sender);
         }
-
-
-
-        //not used at this stage
-        //abandoned
-        private void txtInput_TextChanged(object sender, EventArgs e)
-        {
-            int parsedValue;
-            if (txtInput.Text == string.Empty)
-            {
-                MessageBox.Show("This box cannot be empty");
-                txtInput.BackColor = Color.Red;
-                btnAddNumber.Enabled = false;
-                btnShowList.Enabled = false;
-                btnStart.Enabled = false;
-            }
-
-            else if (!int.TryParse(txtInput.Text, out parsedValue))
-            {
-                MessageBox.Show("This is a whole number only box. Please enter a whole number between 1 and 100");
-                txtInput.BackColor = Color.Red;
-                btnAddNumber.Enabled = false;
-                btnShowList.Enabled = false;
-                btnStart.Enabled = false;
-            }
-
-            else if (int.TryParse(txtInput.Text, out parsedValue))
-            {
-                int arrayItem = int.Parse(txtInput.Text);
-                if (arrayItem <= 0 || arrayItem > 100)
-                {
-                    MessageBox.Show("Number must be between 1 and 100");
-                    txtInput.BackColor = Color.Red;
-                    btnAddNumber.Enabled = false;
-                    btnShowList.Enabled = false;
-                    btnStart.Enabled = false;
-                }
-
-                else
-                {
-                    txtInput.BackColor = Color.Green;
-                    btnAddNumber.Enabled = true;
-                    btnShowList.Enabled = true;
-                    btnStart.Enabled = true;
-                }
-            }
-        }
-
-
-        //not currently being used. will go back to once random array is done
-        //abandoned
-        private void btnAddNumber_Click(object sender, EventArgs e)
-        {
-            if (txtInput.Text == string.Empty)
-            {
-                MessageBox.Show("Box is empty");
-            }
-            else
-            {
-                string displayArray = string.Join(",", updateArray());  //creates a new variable that stores all of the numbers in the array and seperates them with ',' to make it easier to read
-                MessageBox.Show(displayArray);  //displays the formatted array
-
-            }
-        }
-
-
-        //not working as intended. need to look into this once random array side is finished
-        //abandoned
-        private int[] updateArray() //this will be used to update the array when the user adds a number
-        {
-
-            //int i =0; //variable for array positioning
-            int arraySize = int.Parse(txtArraySize.Text); //redefines the array size to the number in the size box
-            int[] arrayData = new int[arraySize]; //recreates the array with size specified
-            //arrayData[0] = 1; 
-
-            for (int i = 0; i < arraySize; i++)
-            {
-                while (arrayData[i] != 0)
-                {
-                    i++;
-                }
-
-                arrayData[i] = int.Parse(txtInput.Text);
-                i = arraySize;
-            }
-            return (arrayData);
-        }
-
 
         //at the moment this only works with the random array due to issues with creating the user array. need to look into passing arrays to functions properly. will come back to that once random array functionality is complete/working sufficiently
         private void btnStart_Click(object sender, EventArgs e)     //when the user presses start
@@ -247,89 +148,6 @@ namespace A2Cw_Clark0
 
         }
 
-
-        //unused
-        private void btnShowList_Click(object sender, EventArgs e)
-        {
-            if (txtArraySize.Text == string.Empty)
-            {
-                MessageBox.Show("Box is empty");
-            }
-            else
-            {
-                string displayArray = string.Join(",", createArray());  //creates a new variable that stores all of the numbers in the array and seperates them with ',' to make it easier to read
-                MessageBox.Show(displayArray);  //displays the formatted array
-            }
-        }
-
-
-        //not used at this point because development of the random array side doesn't involve arrayData. array size is still used
-        private void btnArrayHelp_Click(object sender, EventArgs e)     //when the user presses the help button
-        {
-            MessageBox.Show("This is where you can find help on how to create your own array (list) \nFirst you should enter a number between 1 and 100 in the text box marked array size. Please make sure you enter in a number and nothing else or the program won't work. \nNext enter in the numbers you want to add to your array in the array data text box. Enter them in one by one, pressing add number to list after each one. \nYou can see what the array will look like at any point by pressing the show list button. If there is no data in the array then pressing show list will bring up '0' as the items.");
-        }
-
-
-        //still in development (18.11.20)  resolved. see drawBarsNew function
-        private void btnDrawBars_Click(object sender, EventArgs e) //draws a bar when the button is clicked
-        {
-            //int Min = 1;      //used for testing random line lengths  
-            //int Max = 100;
-
-            //Random randNum = new Random();
-
-            //int x1 = randNum.Next(Min, Max);
-            //int y1 = randNum.Next(Min, Max);
-            //int x2 = randNum.Next(Min, Max);
-            //int y2 = randNum.Next(Min, Max);
-
-
-            drawBars(createRandomArray()); //issue with this is that you will always get a new random array. need to look into passing arrays more. (18.11.20)
-        }
-
-
-        //old testing. not used.
-        private void drawBars(int[] arrayData)
-        {
-            Graphics line = CreateGraphics();       //adapted from https://www.homeandlearn.co.uk/extras/graphics/graphics-paint-event.html
-            Pen pen = new Pen(Color.White, 1);      //creates the pen with colour white and width 2
-
-            Point a = new Point(100, 100);  //sets co-ords of first point (x,y)
-            Point b = new Point(100, 500);  //sets co-ords of second point (x,y)
-
-            line.DrawLine(pen, a, b);
-
-            line.DrawLine(pen, 50, 50, 50, 200);
-            line.DrawLine(pen, 60, 60, 60, 200);
-            line.DrawLine(pen, 70, 70, 70, 200);
-            line.DrawLine(pen, 80, 80, 80, 200);
-            line.DrawLine(pen, 90, 90, 90, 200);
-            line.Dispose();
-
-            string displayArray = string.Join(",", arrayData);  //creates a new variable that stores all of the numbers in the array and seperates them with ',' to make it easier to read
-            MessageBox.Show(displayArray);  //displays the formatted array
-        }
-
-
-        //unused code
-
-        //private int [] test()
-        //{
-        //    int arraySize = int.Parse(txtArraySize.Text);
-        //    int[] arrayData = new int[arraySize];
-        //    int Min = 1;
-        //    int Max = 100;
-
-        //    Random randNum = new Random();
-        //    for (int k = 0; k < arrayData.Length; k++)
-        //    {
-        //        arrayData[k] = randNum.Next(Min, Max);
-        //    }
-
-        //    return (arrayData);
-        //}
-
-
         private void btnBubbleSort_Click(object sender, EventArgs e)
         {
             int[] arrayData = createRandomArray();
@@ -342,7 +160,6 @@ namespace A2Cw_Clark0
         {
             //int count = 0;
             int temp;   //temporary value used for swapping two values
-            //lblSteps.Text = "Creating array";
             string displayArray = string.Join(",", arrayData);
             MessageBox.Show("Unsorted array is " + displayArray);
             Refresh();
@@ -352,15 +169,11 @@ namespace A2Cw_Clark0
             {
                 for (int j = 0; j < arrayData.Length - 1; j++) //loop will repeat as many times as length of array -1
                 {
-                    //count += 1;
                     if (arrayData[j] > arrayData[j + 1])    //if first number is larger than second number
                     {
-                        //count += 1;
                         temp = arrayData[j];    //sets temp to the first (larger) number
                         arrayData[j] = arrayData[j + 1];     //sets the first number to the second (smaller) number
                         arrayData[j + 1] = temp;    //sets the second number to the temp number (first number) which comletes the swap
-
-                        //showSteps(arrayData);
                         Refresh();
                         drawBarsNew(arrayData);
 
@@ -370,8 +183,6 @@ namespace A2Cw_Clark0
             drawBarsNew(arrayData);
             displayArray = string.Join(",", arrayData);
             MessageBox.Show("The sorted array is " + displayArray);     //shows the (hopefully) sorted array
-            //string x = count.ToString();
-            //MessageBox.Show(x);
         }
 
         private void btnLinearSearch_Click(object sender, EventArgs e)
@@ -556,7 +367,6 @@ namespace A2Cw_Clark0
 
             string displayLeft = string.Join(",", left);
             string displayRight = string.Join(",", right);
-            //MessageBox.Show("Splitting " + displayLeft + "        " + displayRight); //comment this out to stop showing steps
             drawBarsNew(arrayData);
             Refresh();
             return merge(left, right);      
@@ -607,7 +417,6 @@ namespace A2Cw_Clark0
                     sortedArrayPos++;
                 }
                 string displayArray = string.Join(",", sortedArray);
-                //MessageBox.Show("Merging " + displayArray);
             }
             drawBarsNew(sortedArray);// not quite working 02.01.2021
             Refresh();
@@ -682,13 +491,11 @@ namespace A2Cw_Clark0
                 }
                 else //if condition above not met
                 {
-                    //drawBarsNew(arrayData);
                     Refresh();
                     return end; //returns end
                 }
 
                 string displayArray = string.Join(",", arrayData);
-                //MessageBox.Show("Partitioning  " + displayArray);
             }
         }
 
@@ -781,23 +588,12 @@ namespace A2Cw_Clark0
 
         private void chkShowSteps_CheckedChanged(object sender, EventArgs e)
         {
-            //does nothing on its own
         }
 
 
-        //not used anymore, was used for testing
-        private void showSteps(int[] arrayData)
-        {
-            if (chkShowSteps.Checked == true) //if user has chosen to not show steps
-            {
-                string displayArray = string.Join(",", arrayData);
-                MessageBox.Show("Sorting: " + displayArray);
-            }
-        }
 
         private void lblShowSteps_Click(object sender, EventArgs e)
         {
-            //does nothing on its own
         }
 
 
@@ -826,24 +622,17 @@ namespace A2Cw_Clark0
             //this allows bars to be drawn properly in proportion to their relative size
 
             SolidBrush brush = new SolidBrush(Color.White); //creates the brush and sets colour to white
-
-
             
             int drawDelay = drawDelayTimer.Interval;
-
-
             for (int i = 0; i < arrayData.Length; i++)    //for each item in the array
             {
 
                 Rectangle rectangle = new Rectangle(i * 3 + 5, 50, 2, arrayData[i]); //creates a new rectangle that is filled. arguments: start x, start y, width, height. 
                 draw.FillRectangle(brush, rectangle);     //draws the rectangle
 
-                //Thread.Sleep(0);
             }
-        
 
         ////this is probably what breaks it. thread.sleep is bad
-        ////async didnt work
         Thread.Sleep(int.Parse(txtDrawDelay.Text)); //sleeps for the amount of ms the user specified
 
 
@@ -854,37 +643,6 @@ namespace A2Cw_Clark0
 
         }
         
-
-        //in progress 05/01/2021
-        //still incomplete/not working as intended 20/01/2021
-        private void getImage(int[] arrayData)
-        {
-            Graphics image = CreateGraphics();
-            Bitmap bmp = new Bitmap(800, 500);
-
-            DoubleBuffered = true; //should slightly reduces flicker, but not by much
-
-            Graphics draw = CreateGraphics(); //initialises 
-            draw.TranslateTransform(0, Height);
-            draw.ScaleTransform(1, -1);
-
-
-            SolidBrush brush = new SolidBrush(Color.Red);
-
-            for (int i = 0; i < arrayData.Length; i++)    //for each item in the array
-            {
-                Rectangle rectangle = new Rectangle(i * 3 + 5, 50, 2, arrayData[i]); //creates a new rectangle that is filled. arguments: start x, start y, width, height. 
-                draw.FillRectangle(brush, rectangle);     //draws the rectangle
-
-                Thread.Sleep(0);
-            }
-
-
-            Thread.Sleep(int.Parse(txtDrawDelay.Text));
-
-            DrawToBitmap(bmp, new Rectangle(Point.Empty, bmp.Size));
-            image.DrawImage(bmp, new PointF(0.0f, 0.0f));
-        }
 
         private void showArray(int[] arrayData)
         {
@@ -949,31 +707,8 @@ namespace A2Cw_Clark0
 
         private void lblDrawDelay_Click(object sender, EventArgs e)
         {
-            //does nothing on its own
-
         }
 
-
-        //unused
-        private int[] returnArray(int[] arrayData)
-        {
-            return arrayData;
-            
-        }
-
-
-        //tried but didnt work
-        private void drawDelayTimer_Tick(object sender, EventArgs e)
-        {
-
-
-        }
-
-        //unused
-        private void lblSteps_Click(object sender, EventArgs e)
-        {
-
-        }
     }
        
 }
